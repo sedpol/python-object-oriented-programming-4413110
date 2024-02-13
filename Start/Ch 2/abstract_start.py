@@ -14,11 +14,15 @@ class Circle(GraphicShape):
     def __init__(self, radius):
         self.radius = radius
 
+    def calcArea(self):
+        return (self.radius ** 2) * 3.14
 
 class Square(GraphicShape):
     def __init__(self, side):
         self.side = side
 
+    def calcArea(self):
+        return self.side ** 2
 
 g = GraphicShape()
 
