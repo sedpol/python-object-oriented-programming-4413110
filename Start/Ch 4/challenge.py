@@ -5,16 +5,25 @@
 # The subclasses are required to override the magic method
 # that makes them sortable
 
+from dataclasses import dataclass
+
+@dataclass
 class Asset():
-    pass
+    price: float
     
-
+@dataclass
 class Stock(Asset):
-    pass
-
-
+    ticker: str
+    company:str
+    def __lt__(self, __value: object) -> bool:
+        return self.price < __value.price
+@dataclass
 class Bond(Asset):
-    pass
+    description: str
+    duration: int
+    yieldamt: float
+    def __lt__(self, __value: object) -> bool:
+        return self.yieldamt < __value.yieldamt
 
 # ~~~~~~~~~ TEST CODE ~~~~~~~~~
 stocks = [
